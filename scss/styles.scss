@@ -1,10 +1,8 @@
 // Normalize default browser styles
 @import 'normalize_scss/normalize';
 @include normalize();
-
-
 //just a sample header, needs to be deleted after migration to WP
-header.main{
+header.main {
     height: 100px;
     width: 100%;
     background-color: grey;
@@ -14,10 +12,53 @@ header.main{
     font-style: bold;
     line-height: 100px;
 }
-.top_video-section .top_video_overlay{
-    background-color:rgba(0,0,0,.65);
-    height:80vh;
-    position:relative;
-    width:100%;
-    overflow: hidden;
+
+.top_video-section {
+    .top_video_overlay {
+        height: calc(100vh - 100px);
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        .top_video_header{
+            display: table;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            .inner{
+                display: table-cell;
+                vertical-align: middle;
+            }
+            img{
+                width: 60%;
+            }
+        }
+        video {
+            backface-visibility: hidden;
+            top: 0;
+            height: auto;
+            min-height: 100%;
+            min-width: 100%;
+            perspective: 1000;
+            position: fixed;
+            right: 0;
+            width: auto;
+            z-index: -1;
+        }
+    }
+}
+
+.next {
+    font-size: 1.5em;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 1024px){
+    .top_video-section{
+        .top_video_overlay{
+            background-color: #000;
+        }
+        video{
+            display: none;
+        }
+    }
 }
