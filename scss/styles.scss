@@ -1,0 +1,23 @@
+// Normalize default browser styles
+@import 'normalize_scss/normalize';
+@include normalize();
+
+
+//just a sample header, needs to be deleted after migration to WP
+header.main{
+    height: 100px;
+    width: 100%;
+    background-color: grey;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 2em;
+    font-style: bold;
+    line-height: 100px;
+}
+.top_video-section .top_video_overlay{
+    background-color:rgba(0,0,0,.65);
+    height:80vh;
+    position:relative;
+    width:100%;
+    overflow: hidden;
+}
