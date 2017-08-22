@@ -439,6 +439,19 @@ header.main {
     width: auto;
     z-index: -1; }
 
+.water_bike_features {
+  background-color: white; }
+  .water_bike_features .water_bike_features_wrapper #water_bike {
+    width: 100%; }
+  .water_bike_features .water_bike_features_wrapper .list_of_features {
+    display: flex;
+    justify-content: space-around; }
+    .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature p {
+      text-transform: uppercase;
+      color: #222222; }
+    .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature span {
+      color: #bbbbbb; }
+
 .next {
   font-size: 1.5em;
   background-color: #fff; }

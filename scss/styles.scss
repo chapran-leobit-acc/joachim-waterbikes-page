@@ -47,6 +47,28 @@ header.main {
     }
 }
 
+.water_bike_features {
+    background-color: white;
+    .water_bike_features_wrapper {
+        #water_bike {
+            width: 100%;
+        }
+        .list_of_features {
+            display: flex;
+            justify-content: space-around;
+            .single_feature {
+                p {
+                    text-transform: uppercase;
+                    color: #222222;
+                }
+                span {
+                    color: #bbbbbb;
+                }
+            }
+        }
+    }
+}
+
 .next {
     font-size: 1.5em;
     background-color: #fff;
