@@ -441,16 +441,33 @@ header.main {
 
 .water_bike_features {
   background-color: white; }
-  .water_bike_features .water_bike_features_wrapper #water_bike {
-    width: 100%; }
-  .water_bike_features .water_bike_features_wrapper .list_of_features {
-    display: flex;
-    justify-content: space-around; }
-    .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature p {
-      text-transform: uppercase;
-      color: #222222; }
-    .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature span {
-      color: #bbbbbb; }
+  .water_bike_features .water_bike_features_wrapper {
+    padding-top: 100px; }
+    .water_bike_features .water_bike_features_wrapper #water_bike {
+      width: 100%; }
+    .water_bike_features .water_bike_features_wrapper .list_of_features {
+      padding: 0 20px;
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-around; }
+      .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature {
+        padding: 0 10px;
+        flex-basis: 375px;
+        text-align: center; }
+        .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature p {
+          margin: 21px 0 10px 0;
+          font-weight: 700;
+          font-family: 'Oswald';
+          text-transform: uppercase;
+          color: #222222;
+          letter-spacing: -2px;
+          font-style: italic;
+          font-size: 35px; }
+        .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature span {
+          font-size: 15px;
+          line-height: 1.5em;
+          font-family: 'Poppins';
+          color: #bbbbbb; }
 
 .next {
   font-size: 1.5em;
@@ -461,3 +478,11 @@ header.main {
     background-color: #000; }
   .top_video-section video {
     display: none; } }
+
+@media screen and (max-width: 992px) {
+  .water_bike_features .water_bike_features_wrapper .list_of_features {
+    display: block; }
+    .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature {
+      padding-top: 60px; }
+    .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature:first-child {
+      padding: 7px; } }
