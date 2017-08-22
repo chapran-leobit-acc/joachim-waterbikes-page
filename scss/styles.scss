@@ -9,7 +9,42 @@
     }
 }
 
-*{
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(fadeInUp) {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.fadeInUp {
+    animation-name: fadeInUp;
+}
+
+* {
     box-sizing: border-box;
 }
 
@@ -62,7 +97,7 @@ header.main {
 .water_bike_features {
     background-color: white;
     .water_bike_features_wrapper {
-        padding-top: 100px;
+        padding: 100px 0;
         #water_bike {
             width: 100%;
         }
@@ -162,7 +197,7 @@ header.main {
     }
 }
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 992px) {
     .water_bike_features {
         .water_bike_features_wrapper {
             .list_of_features {

@@ -3,6 +3,7 @@ $(document).ready(function () {
         var scrolled = $(this).scrollTop();
         $('#top_vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
     });
+    animateBicycleFeatures();
     enableVimeoVidControls();
 })
 
@@ -49,4 +50,17 @@ function enableVimeoVidControls() {
                 break;
         }
     }
+}
+
+function animateBicycleFeatures(){
+    var animatedListItems = $('.animated');
+    
+        // hide our element on page load
+        animatedListItems.css('opacity', 0);
+    
+        $.each(animatedListItems, function (index, item) {
+            $(item).waypoint(function () {
+                $(animatedListItems[index]).addClass('fadeInUp');
+            }, { offset: '80%' });
+        });
 }
