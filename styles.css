@@ -407,6 +407,78 @@ template {
   content: '';
   display: block; }
 
+@-webkit-keyframes toggleSize {
+  from {
+    transform: scale(1.5); }
+  to {
+    transform: scale(2); } }
+
+@-moz-keyframes toggleSize {
+  from {
+    transform: scale(1.5); }
+  to {
+    transform: scale(2); } }
+
+@-o-keyframes toggleSize {
+  from {
+    transform: scale(1.5); }
+  to {
+    transform: scale(2); } }
+
+@keyframes toggleSize {
+  from {
+    transform: scale(1.5); }
+  to {
+    transform: scale(2); } }
+
+@-webkit-keyframes toggleSizeTablet {
+  from {
+    transform: scale(1); }
+  to {
+    transform: scale(1.5); } }
+
+@-moz-keyframes toggleSizeTablet {
+  from {
+    transform: scale(1); }
+  to {
+    transform: scale(1.5); } }
+
+@-o-keyframes toggleSizeTablet {
+  from {
+    transform: scale(1); }
+  to {
+    transform: scale(1.5); } }
+
+@keyframes toggleSizeTablet {
+  from {
+    transform: scale(1); }
+  to {
+    transform: scale(1.5); } }
+
+@-webkit-keyframes toggleSizeMobile {
+  from {
+    transform: scale(0.5); }
+  to {
+    transform: scale(1); } }
+
+@-moz-keyframes toggleSizeMobile {
+  from {
+    transform: scale(0.5); }
+  to {
+    transform: scale(1); } }
+
+@-o-keyframes toggleSizeMobile {
+  from {
+    transform: scale(0.5); }
+  to {
+    transform: scale(1); } }
+
+@keyframes toggleSizeMobile {
+  from {
+    transform: scale(0.5); }
+  to {
+    transform: scale(1); } }
+
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
@@ -500,7 +572,8 @@ header.main {
       .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature {
         padding: 0 10px;
         flex-basis: 375px;
-        text-align: center; }
+        text-align: center;
+        opacity: 0; }
         .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature p {
           margin: 21px 0 10px 0;
           font-weight: 700;
@@ -586,6 +659,128 @@ header.main {
     width: 100%;
     border: 1px solid #000; }
 
+.key_tech_section {
+  position: relative;
+  background-color: #fff; }
+  .key_tech_section .key_tech_parallax_image {
+    opacity: 0.1;
+    position: absolute;
+    width: 60%;
+    left: 20%; }
+  .key_tech_section .key_tech_image_container {
+    padding-top: 200px; }
+    .key_tech_section .key_tech_image_container img {
+      display: block;
+      margin: auto;
+      position: relative;
+      z-index: 5;
+      width: 80%; }
+    .key_tech_section .key_tech_image_container .key_tech_svg_container {
+      position: absolute;
+      z-index: 20;
+      animation: toggleSize .9s ease infinite alternate;
+      display: inline-flex; }
+      .key_tech_section .key_tech_image_container .key_tech_svg_container svg {
+        fill: #0033ff;
+        transition: none;
+        text-align: inherit;
+        line-height: 22px;
+        border-width: 0px;
+        margin: 0px;
+        padding: 0px;
+        letter-spacing: 0px;
+        font-weight: 400;
+        font-size: 15px;
+        stroke-dashoffset: 0px;
+        stroke-dasharray: 0;
+        stroke-width: 0px;
+        stroke: transparent; }
+      .key_tech_section .key_tech_image_container .key_tech_svg_container path {
+        fill: #0033ff;
+        transition: none;
+        text-align: inherit;
+        line-height: 22px;
+        border-width: 0px;
+        margin: 0px;
+        padding: 0px;
+        letter-spacing: 0px;
+        font-weight: 400;
+        font-size: 15px; }
+  .key_tech_section #outdrive {
+    top: calc(200px + 3vw);
+    left: 46%; }
+  .key_tech_section #responsive_steering {
+    top: 200px;
+    left: 34%; }
+  .key_tech_section #durable_frame {
+    top: calc(200px + 10.5vw);
+    left: 41%; }
+  .key_tech_section #engineered_for_speed {
+    top: calc(200px + 14vw);
+    left: 37%; }
+  .key_tech_section .key_tech_features {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; }
+  .key_tech_section .key_tech_feature_desc {
+    position: absolute;
+    display: flex;
+    width: 25%;
+    align-items: center;
+    opacity: 0;
+    transition: opacity .5s;
+    z-index: 10; }
+    .key_tech_section .key_tech_feature_desc .text_section,
+    .key_tech_section .key_tech_feature_desc .line_outer {
+      padding: 5px; }
+    .key_tech_section .key_tech_feature_desc .text_section {
+      z-index: 16;
+      white-space: normal;
+      font-size: 16px;
+      line-height: 12px;
+      font-weight: 700;
+      color: #222222;
+      letter-spacing: 0px;
+      font-family: Oswald;
+      font-style: italic;
+      flex-basis: 75%; }
+      .key_tech_section .key_tech_feature_desc .text_section .heading {
+        display: block; }
+      .key_tech_section .key_tech_feature_desc .text_section .description {
+        font-size: 11px;
+        font-weight: 400;
+        font-family: poppins; }
+    .key_tech_section .key_tech_feature_desc .line_outer {
+      flex-basis: 25%; }
+      .key_tech_section .key_tech_feature_desc .line_outer .line {
+        display: block;
+        height: 2px;
+        width: 100%;
+        border: none;
+        background-color: #0033ff; }
+  .key_tech_section [data-label='engineered_for_speed'] {
+    width: 40%;
+    flex-direction: column; }
+    .key_tech_section [data-label='engineered_for_speed'] .text_section {
+      width: 70%; }
+    .key_tech_section [data-label='engineered_for_speed'] .line_outer {
+      width: 100%;
+      height: 60px;
+      position: relative; }
+      .key_tech_section [data-label='engineered_for_speed'] .line_outer .line:not(.rotated) {
+        width: 40%;
+        position: absolute;
+        bottom: 0;
+        right: 0; }
+      .key_tech_section [data-label='engineered_for_speed'] .line_outer .rotated {
+        width: 40px;
+        transform: rotate(45deg);
+        position: absolute;
+        right: calc(40% - 7px);
+        bottom: 15px; }
+
 @media screen and (max-width: 1024px) {
   .top_video-section .top_video_overlay {
     background-color: #000; }
@@ -598,4 +793,21 @@ header.main {
     .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature {
       padding-top: 60px; }
     .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature:first-child {
-      padding: 7px; } }
+      padding: 7px; }
+  .key_tech_section .key_tech_image_container .key_tech_svg_container {
+    animation-name: toggleSizeTablet; }
+  .key_tech_section .key_tech_features {
+    position: relative;
+    margin-top: -30px; }
+  .key_tech_section .key_tech_feature_desc {
+    width: 80%;
+    left: 10%; }
+    .key_tech_section .key_tech_feature_desc .text_section {
+      width: 100%;
+      flex-basis: 100%; }
+    .key_tech_section .key_tech_feature_desc .line_outer {
+      display: none; } }
+
+@media screen and (max-width: 500px) {
+  .key_tech_section .key_tech_image_container .key_tech_svg_container {
+    animation-name: toggleSizeMobile; } }
