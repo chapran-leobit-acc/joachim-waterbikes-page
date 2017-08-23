@@ -631,11 +631,11 @@ header.main {
     height: 100%;
     position: relative; }
     .vimeo_embedded_video_section .play_btn_container #text_video {
-      padding-top: 80px;
-      width: 55%; }
+      position: relative;
+      width: 50%; }
     .vimeo_embedded_video_section .play_btn_container #play_video_control {
       position: absolute;
-      top: 90%;
+      top: 70%;
       left: calc(50% - 50px);
       height: 100px;
       width: 100px;
@@ -643,7 +643,7 @@ header.main {
       padding-right: 0; }
   .vimeo_embedded_video_section .bottom_controls {
     position: absolute;
-    top: 535px;
+    top: 525px;
     width: 100%;
     padding: 20px;
     display: none; }
@@ -788,6 +788,10 @@ header.main {
     display: none; } }
 
 @media screen and (max-width: 992px) {
+  .vimeo_embedded_video_section .play_btn_container #play_video_control {
+    top: 88%; }
+  .vimeo_embedded_video_section .play_btn_container #text_video {
+    top: 200px; }
   .water_bike_features .water_bike_features_wrapper .list_of_features {
     display: block; }
     .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature {
@@ -807,6 +811,18 @@ header.main {
       flex-basis: 100%; }
     .key_tech_section .key_tech_feature_desc .line_outer {
       display: none; } }
+
+@media screen and (min-width: 993px) and (max-width: 1090px) {
+  .vimeo_embedded_video_section .bottom_controls {
+    top: 428px; } }
+
+@media screen and (min-width: 992px) and (max-width: 1240) {
+  .vimeo_embedded_video_section .play_btn_container #play_video_control {
+    top: 50%; } }
+
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .vimeo_embedded_video_section .bottom_controls {
+    top: 445px; } }
 
 @media screen and (max-width: 500px) {
   .key_tech_section .key_tech_image_container .key_tech_svg_container {

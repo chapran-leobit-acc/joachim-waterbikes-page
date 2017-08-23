@@ -205,12 +205,12 @@ header.main {
         height: 100%;
         position: relative;
         #text_video {
-            padding-top: 80px;
-            width: 55%;
+            position: relative;
+            width: 50%;
         }
         #play_video_control {
             position: absolute;
-            top: 90%;
+            top: 70%;
             left: calc(50% - 50px);
             height: 100px;
             width: 100px;
@@ -220,7 +220,7 @@ header.main {
     }
     .bottom_controls {
         position: absolute;
-        top: 535px;
+        top: 525px;
         width: 100%;
         @extend %clearfix;
         padding: 20px;
@@ -399,6 +399,16 @@ header.main {
 }
 
 @media screen and (max-width: 992px) {
+    .vimeo_embedded_video_section {
+        .play_btn_container {
+            #play_video_control {
+                top: 88%;
+            }
+            #text_video {
+                top: 200px;
+            }
+        }
+    }
     .water_bike_features {
         .water_bike_features_wrapper {
             .list_of_features {
@@ -430,6 +440,32 @@ header.main {
             .line_outer{
                 display: none;
             }
+        }
+    }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1090px) {
+    .vimeo_embedded_video_section {
+        .bottom_controls {
+            top: 428px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1240) {
+    .vimeo_embedded_video_section {
+        .play_btn_container {
+            #play_video_control {
+                top: 50%;
+            }    
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .vimeo_embedded_video_section {
+        .bottom_controls {
+            top: 445px;
         }
     }
 }
