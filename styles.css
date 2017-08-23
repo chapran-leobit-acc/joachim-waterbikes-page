@@ -517,12 +517,14 @@ header.main {
           color: #bbbbbb; }
 
 .vimeo_embedded_video_section {
+  overflow: hidden;
+  height: 645px;
   background-color: #fff;
   position: relative; }
   .vimeo_embedded_video_section .vimeo_video_controls {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 77%;
     z-index: 5; }
   .vimeo_embedded_video_section button {
     -webkit-transition: all 300ms ease-in;
@@ -552,13 +554,15 @@ header.main {
     transition: all 300ms ease-in;
     transform: scale(1.2); }
   .vimeo_embedded_video_section .play_btn_container {
+    text-align: center;
     height: 100%;
     position: relative; }
     .vimeo_embedded_video_section .play_btn_container #text_video {
-      color: white; }
+      padding-top: 80px;
+      width: 55%; }
     .vimeo_embedded_video_section .play_btn_container #play_video_control {
       position: absolute;
-      top: 50%;
+      top: 90%;
       left: calc(50% - 50px);
       height: 100px;
       width: 100px;
@@ -566,7 +570,7 @@ header.main {
       padding-right: 0; }
   .vimeo_embedded_video_section .bottom_controls {
     position: absolute;
-    bottom: 0;
+    top: 535px;
     width: 100%;
     padding: 20px;
     display: none; }
@@ -579,7 +583,8 @@ header.main {
       margin: 0 10px;
       padding: 0; }
   .vimeo_embedded_video_section video {
-    width: 100%; }
+    width: 100%;
+    border: 1px solid #000; }
 
 @media screen and (max-width: 1024px) {
   .top_video-section .top_video_overlay {

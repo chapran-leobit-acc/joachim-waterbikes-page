@@ -132,12 +132,14 @@ header.main {
 }
 
 .vimeo_embedded_video_section {
+    overflow: hidden;
+    height: 645px;
     background-color: #fff;
     position: relative;
     .vimeo_video_controls {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 77%;
         z-index: 5;
     }
     button {
@@ -171,14 +173,16 @@ header.main {
         transform: scale(1.2);
     }
     .play_btn_container {
+        text-align: center;
         height: 100%;
         position: relative;
         #text_video {
-            color: white;
+            padding-top: 80px;
+            width: 55%;
         }
         #play_video_control {
             position: absolute;
-            top: 50%;
+            top: 90%;
             left: calc(50% - 50px);
             height: 100px;
             width: 100px;
@@ -188,7 +192,7 @@ header.main {
     }
     .bottom_controls {
         position: absolute;
-        bottom: 0;
+        top: 535px;
         width: 100%;
         @extend %clearfix;
         padding: 20px;
@@ -205,6 +209,7 @@ header.main {
     }
     video {
         width: 100%;
+         border: 1px solid #000;
     }
 }
 
@@ -234,3 +239,4 @@ header.main {
         }
     }
 }
+

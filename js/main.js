@@ -1,7 +1,9 @@
 $(document).ready(function () {
     $(window).on('load scroll', function () {
         var scrolled = $(this).scrollTop();
-        $('#top_vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
+        $('#top_vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)');
+        var scrolledd = $(this).scrollTop() - 1200;
+        $('#vimeo_video').css('transform', 'translate3d(0, ' + -(scrolledd * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
     });
     animateBicycleFeatures();
     enableVimeoVidControls();
@@ -10,6 +12,7 @@ $(document).ready(function () {
 function enableVimeoVidControls() {
     var vimeoVideo = $('#vimeo_video').get(0),
         playBtn = $('#play_video_control'),
+        textOnVideo = $('#text_video'),
         bottomControls = $('.bottom_controls'),
         pauseBtn = $('#pause_video_control'),
         volumeBtn = $('#volume_video_control');
@@ -25,12 +28,14 @@ function enableVimeoVidControls() {
     })
 
     function playVideo() {
+        textOnVideo.fadeOut();
         vimeoVideo.play();
         playBtn.fadeOut();
         bottomControls.fadeIn();
     }
 
     function pauseVideo() {
+        textOnVideo.fadeIn();
         vimeoVideo.pause();
         playBtn.fadeIn();
         bottomControls.fadeOut();
