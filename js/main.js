@@ -1,9 +1,9 @@
 $(document).ready(function () {
     $(window).on('load scroll', function () {
         var scrolled = $(this).scrollTop();
-        $('#top_vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)');
-        var scrolledd = $(this).scrollTop() - 1200;
-        $('#vimeo_video').css('transform', 'translate3d(0, ' + -(scrolledd * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
+        $('#top_vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
+        var videoScroll = scrolled - 1500;
+        $('#vimeo_video').css('transform', 'translate3d(0, ' + (videoScroll * 0.25) + 'px, 0)'); 
     });
     animateBicycleFeatures();
     enableVimeoVidControls();
