@@ -402,7 +402,7 @@ template {
 [hidden] {
   display: none; }
 
-.vimeo_embedded_video_section .bottom_controls::after {
+.vimeo_embedded_video_section .bottom_controls::after, .popup_grid_section::after {
   clear: both;
   content: '';
   display: block; }
@@ -591,9 +591,13 @@ header.main {
 
 .vimeo_embedded_video_section {
   overflow: hidden;
-  height: 645px;
+  height: 85vh;
   background-color: #fff;
   position: relative; }
+  .vimeo_embedded_video_section iframe {
+    display: none;
+    width: 100vw;
+    height: 66vw; }
   .vimeo_embedded_video_section .vimeo_video_controls {
     position: absolute;
     width: 100%;
@@ -781,6 +785,66 @@ header.main {
         right: calc(40% - 7px);
         bottom: 15px; }
 
+.popup_grid_section {
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0; }
+  .popup_grid_section a {
+    width: 25vw;
+    height: 25vw;
+    background-size: cover;
+    background-position: center;
+    text-decoration: none; }
+    .popup_grid_section a .overlay {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: table;
+      text-align: center;
+      transition: opacity .5s;
+      background-color: #000; }
+      .popup_grid_section a .overlay span {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 4em;
+        font-weight: bold;
+        color: #fff; }
+      .popup_grid_section a .overlay:hover {
+        opacity: .7; }
+    .popup_grid_section a:not(:last-of-type) {
+      margin-right: 10px; }
+    .popup_grid_section a:nth-of-type(1) {
+      background-image: url(assets/img/s-1-gallery-4.jpg); }
+    .popup_grid_section a:nth-of-type(2) {
+      background-image: url(assets/img/s-1-gallery-3.jpg); }
+    .popup_grid_section a:nth-of-type(3) {
+      background-image: url(assets/img/bike-360/s1-4.jpg); }
+    .popup_grid_section a:nth-of-type(4) {
+      background-image: url(assets/img/builttotravel.jpg); }
+
+.mfp-zoom-in {
+  /* start state */
+  /* animate in */
+  /* animate out */ }
+  .mfp-zoom-in .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8); }
+  .mfp-zoom-in.mfp-bg {
+    opacity: 0;
+    transition: all 0.3s ease-out; }
+  .mfp-zoom-in.mfp-ready .mfp-with-anim {
+    opacity: 1;
+    transform: scale(1); }
+  .mfp-zoom-in.mfp-ready.mfp-bg {
+    opacity: 0.8; }
+  .mfp-zoom-in.mfp-removing .mfp-with-anim {
+    transform: scale(0.8);
+    opacity: 0; }
+  .mfp-zoom-in.mfp-removing.mfp-bg {
+    opacity: 0; }
+
 .assembly_video_section {
   position: relative; }
   .assembly_video_section .assembly_banner {
@@ -821,6 +885,60 @@ header.main {
     .assembly_video_section .assembly_text svg {
       fill: #0033ff; }
 
+.threesixty_bike_section {
+  /* thumb */ }
+  .threesixty_bike_section input[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    width: 90%;
+    height: 15px;
+    margin: 10px auto;
+    border: none;
+    padding: 1px 2px;
+    background: linear-gradient(to right, #0033ff 0, silver 0);
+    outline: none;
+    /* no focus outline */ }
+  .threesixty_bike_section input[type="range"]::-moz-range-track {
+    border: inherit;
+    background: transparent; }
+  .threesixty_bike_section input[type="range"]::-ms-track {
+    border: inherit;
+    color: transparent;
+    /* don't drawn vertical reference line */
+    background: transparent; }
+  .threesixty_bike_section input[type="range"]::-ms-fill-lower,
+  .threesixty_bike_section input[type="range"]::-ms-fill-upper {
+    background: transparent; }
+  .threesixty_bike_section input[type="range"]::-ms-tooltip {
+    display: none; }
+  .threesixty_bike_section input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 7px #b6b4a8;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #529de1), color-stop(100%, #245e8f));
+    /* android <= 2.2 */
+    background-image: -webkit-linear-gradient(top, #529de1 0, #245e8f 100%);
+    /* older mobile safari and android > 2.2 */
+    background: #efefe7; }
+  .threesixty_bike_section input[type="range"]::-moz-range-thumb {
+    width: 30px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 7px #b6b4a8;
+    background: #efefe7; }
+  .threesixty_bike_section input[type="range"]::-ms-thumb {
+    width: 30px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    box-shadow: inset 0px 1px 7px #b6b4a8;
+    background: #efefe7; }
+
 @media screen and (max-width: 1024px) {
   .top_video-section .top_video_overlay {
     background-color: #000; }
@@ -829,15 +947,17 @@ header.main {
   .assembly_video_section {
     height: 775px; }
     .assembly_video_section .assembly_text {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("assets/img/videofallback.jpg"); }
-      .assembly_video_section .assembly_text h3, .assembly_video_section .assembly_text p {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/videofallback.jpg"); }
+      .assembly_video_section .assembly_text h3,
+      .assembly_video_section .assembly_text p {
         padding: 0 50px; }
     .assembly_video_section .assembly_video {
       display: none; } }
 
 @media screen and (max-width: 992px) {
   .vimeo_embedded_video_section .play_btn_container #play_video_control {
-    top: 88%; }
+    top: auto;
+    bottom: 0; }
   .vimeo_embedded_video_section .play_btn_container #text_video {
     top: 200px; }
   .water_bike_features .water_bike_features_wrapper .list_of_features {
@@ -850,7 +970,8 @@ header.main {
     animation-name: toggleSizeTablet; }
   .key_tech_section .key_tech_features {
     position: relative;
-    margin-top: -30px; }
+    margin-top: -30px;
+    height: 140px; }
   .key_tech_section .key_tech_feature_desc {
     width: 80%;
     left: 10%; }
@@ -872,6 +993,33 @@ header.main {
   .vimeo_embedded_video_section .bottom_controls {
     top: 445px; } }
 
+@media screen and (max-width: 767px) {
+  .vimeo_embedded_video_section {
+    height: auto; }
+    .vimeo_embedded_video_section > *:not(iframe) {
+      display: none; }
+    .vimeo_embedded_video_section iframe {
+      display: block; }
+  .popup_grid_section {
+    flex-wrap: wrap; }
+    .popup_grid_section a {
+      flex-basis: calc(50% - 5px);
+      height: 50vw; }
+      .popup_grid_section a:nth-of-type(1) {
+        margin-bottom: 10px; }
+      .popup_grid_section a:nth-of-type(2) {
+        margin-right: 0;
+        margin-bottom: 10px; } }
+
 @media screen and (max-width: 500px) {
   .key_tech_section .key_tech_image_container .key_tech_svg_container {
-    animation-name: toggleSizeMobile; } }
+    animation-name: toggleSizeMobile; }
+  .key_tech_section .key_tech_features {
+    height: 160px; }
+  .popup_grid_section a {
+    flex-basis: 100vw;
+    height: 100vw; }
+    .popup_grid_section a:nth-of-type(n) {
+      margin-right: 0; }
+    .popup_grid_section a:nth-of-type(3) {
+      margin-bottom: 10px; } }

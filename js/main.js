@@ -8,6 +8,31 @@ $(document).ready(function () {
     animateBicycleFeatures();
     enableVimeoVidControls();
     setKeyTechCaptions();
+    enable360Slider();
+    $('.popup_grid_section').magnificPopup({
+        delegate: 'a', // child items selector, by clicking on it popup will open
+        type: 'image',
+        gallery: {
+            enabled: true
+        },
+        removalDelay: 500, //delay removal by X to allow out-animation
+        callbacks: {
+            beforeOpen: function () {
+                // just a hack that adds mfp-anim class to markup 
+                this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+                this.st.mainClass = this.st.el.attr('data-effect');
+            },
+            open: function () {
+                $('html').css({
+                    'overflow': 'auto',
+                    'margin-right': 0
+                })
+            }
+        },
+        closeOnContentClick: true,
+        midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+        // other options
+    });
 })
 
 function enableVimeoVidControls() {
@@ -74,10 +99,10 @@ function setKeyTechCaptions() {
         var target = $(e.currentTarget),
             idStr = target.attr('id'),
             descrItem = $("[data-label='" + idStr + "']");
-            stylesObject = {};
+        stylesObject = {};
         if (e.type == 'mouseover') {
             stylesObject['opacity'] = 1;
-            if(window.innerWidth >= 992){
+            if (window.innerWidth >= 992) {
                 var targetPosition = {
                     top: parseInt(target.css('top')),
                     left: parseInt(target.css('left'))
@@ -101,9 +126,31 @@ function setKeyTechCaptions() {
         }
         descrItem.css(stylesObject);
     })
-    $(window).on('resize', function(){
-        if(window.innerWidth < 992){
+    $(window).on('resize', function () {
+        if (window.innerWidth < 992) {
             $('[data-label]').removeAttr('style');
         }
+    })
+}
+
+function enable360Slider(){
+    bike = $('.bike').ThreeSixty({
+        totalFrames: 8, // Total no. of image you have for 360 slider
+        endFrame: 8, // end frame for the auto spin animation
+        currentFrame: 1, // This the start frame for auto spin
+        imgList: '.threesixty_images', // selector for image list
+        progress: '.spinner', // selector to show the loading progress
+        imagePath:'./assets/img/bike-360/', // path of the image assets
+        filePrefix: 's1-', // file prefix if any
+        ext: '.jpg', // extention for the assets
+        height: 1000,
+        width: 447,
+        navigation: false,
+        responsive: true
+    });
+    $('#threesixty_range_slider').on('change', function(e){
+        var value = $(this).val();
+        console.log(value);
+        bike.gotoAndPlay(value);
     })
 }

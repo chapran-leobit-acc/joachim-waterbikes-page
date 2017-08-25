@@ -161,9 +161,14 @@ header.main {
 
 .vimeo_embedded_video_section {
     overflow: hidden;
-    height: 645px;
+    height: 85vh;
     background-color: #fff;
     position: relative;
+    iframe {
+        display: none;
+        width: 100vw;
+        height: 66vw;
+    }
     .vimeo_video_controls {
         position: absolute;
         width: 100%;
@@ -387,6 +392,88 @@ header.main {
     }
 }
 
+.popup_grid_section {
+    @extend %clearfix;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    a {
+        width: 25vw;
+        height: 25vw;
+        background-size: cover;
+        background-position: center;
+        text-decoration: none;
+        .overlay {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            display: table;
+            text-align: center;
+            transition: opacity .5s;
+            background-color: #000;
+            span {
+                display: table-cell;
+                vertical-align: middle;
+                font-size: 4em;
+                font-weight: bold;
+                color: #fff;
+            }
+            &:hover {
+                opacity: .7;
+            }
+        }
+        &:not(:last-of-type) {
+            margin-right: 10px;
+        }
+        &:nth-of-type(1) {
+            background-image: url(assets/img/s-1-gallery-4.jpg);
+        }
+        &:nth-of-type(2) {
+            background-image: url(assets/img/s-1-gallery-3.jpg);
+        }
+        &:nth-of-type(3) {
+            background-image: url(assets/img/bike-360/s1-4.jpg);
+        }
+        &:nth-of-type(4) {
+            background-image: url(assets/img/builttotravel.jpg);
+        }
+    }
+}
+
+.mfp-zoom-in {
+    /* start state */
+    .mfp-with-anim {
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        transform: scale(0.8);
+    }
+    &.mfp-bg {
+        opacity: 0;
+        transition: all 0.3s ease-out;
+    }
+    /* animate in */
+    &.mfp-ready {
+        .mfp-with-anim {
+            opacity: 1;
+            transform: scale(1);
+        }
+        &.mfp-bg {
+            opacity: 0.8;
+        }
+    }
+    /* animate out */
+    &.mfp-removing {
+        .mfp-with-anim {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        &.mfp-bg {
+            opacity: 0;
+        }
+    }
+}
+
 .assembly_video_section {
     position: relative;
     .assembly_banner {
@@ -402,37 +489,100 @@ header.main {
         height: 100%;
         width: 100%;
         text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
-            font-family: 'Oswald';
-            width: 100%;
-            height: 100%;
-            color: #eee;
-            position: absolute;
-            top: 0;
-            h3 {
-                text-transform: uppercase;
-                font-size: 50px;
-                font-style: italic;
-                margin: 20px 0 20px 0;
-            }
-            hr {
-                width: 40px;
-                background: rgb(0, 51, 255);
-                border-color: rgb(0, 51, 255);
-            }
-            p {
-                font-family: 'Poppins';
-                font-size: 15px;
-                font-weight: 500;
-                margin-top: 20px;
-            }
-            svg {
-                fill: rgb(0, 51, 255);
-            }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        font-family: 'Oswald';
+        width: 100%;
+        height: 100%;
+        color: #eee;
+        position: absolute;
+        top: 0;
+        h3 {
+            text-transform: uppercase;
+            font-size: 50px;
+            font-style: italic;
+            margin: 20px 0 20px 0;
+        }
+        hr {
+            width: 40px;
+            background: rgb(0, 51, 255);
+            border-color: rgb(0, 51, 255);
+        }
+        p {
+            font-family: 'Poppins';
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+        svg {
+            fill: rgb(0, 51, 255);
+        }
+    }
+}
+
+.threesixty_bike_section {
+    input[type="range"] {
+        display: block;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        width: 90%;
+        height: 15px;
+        margin: 10px auto;
+        border: none;
+        padding: 1px 2px;
+        background: linear-gradient(to right, #0033ff 0, silver 0);
+        outline: none;
+        /* no focus outline */
+    }
+    input[type="range"]::-moz-range-track {
+        border: inherit;
+        background: transparent;
+    }
+    input[type="range"]::-ms-track {
+        border: inherit;
+        color: transparent;
+        /* don't drawn vertical reference line */
+        background: transparent;
+    }
+    input[type="range"]::-ms-fill-lower,
+    input[type="range"]::-ms-fill-upper {
+        background: transparent;
+    }
+    input[type="range"]::-ms-tooltip {
+        display: none;
+    }
+    /* thumb */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 20px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: inset 0px 1px 7px #b6b4a8;
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #529de1), color-stop(100%, #245e8f));
+        /* android <= 2.2 */
+        background-image: -webkit-linear-gradient(top, #529de1 0, #245e8f 100%);
+        /* older mobile safari and android > 2.2 */
+        background: #efefe7;
+    }
+    input[type="range"]::-moz-range-thumb {
+        width: 30px;
+        height: 20px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: inset 0px 1px 7px #b6b4a8;
+        background: #efefe7;
+    }
+    input[type="range"]::-ms-thumb {
+        width: 30px;
+        height: 20px;
+        border-radius: 5px;
+        border: 1px solid #000;
+        box-shadow: inset 0px 1px 7px #b6b4a8;
+        background: #efefe7;
     }
 }
 
@@ -448,8 +598,9 @@ header.main {
     .assembly_video_section {
         height: 775px;
         .assembly_text {
-            background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('assets/img/videofallback.jpg');
-            h3, p {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/img/videofallback.jpg');
+            h3,
+            p {
                 padding: 0 50px;
             }
         }
@@ -463,7 +614,8 @@ header.main {
     .vimeo_embedded_video_section {
         .play_btn_container {
             #play_video_control {
-                top: 88%;
+                top: auto;
+                bottom: 0;
             }
             #text_video {
                 top: 200px;
@@ -484,21 +636,22 @@ header.main {
         }
     }
     .key_tech_section {
-        .key_tech_image_container .key_tech_svg_container{
+        .key_tech_image_container .key_tech_svg_container {
             animation-name: toggleSizeTablet;
         }
         .key_tech_features {
             position: relative;
             margin-top: -30px;
+            height: 140px;
         }
-        .key_tech_feature_desc{
+        .key_tech_feature_desc {
             width: 80%;
             left: 10%;
-            .text_section{
+            .text_section {
                 width: 100%;
                 flex-basis: 100%;
             }
-            .line_outer{
+            .line_outer {
                 display: none;
             }
         }
@@ -518,7 +671,7 @@ header.main {
         .play_btn_container {
             #play_video_control {
                 top: 50%;
-            }    
+            }
         }
     }
 }
@@ -531,10 +684,51 @@ header.main {
     }
 }
 
-@media screen and (max-width: 500px){
-    .key_tech_section{
-        .key_tech_image_container .key_tech_svg_container{
+@media screen and (max-width: 767px) {
+    .vimeo_embedded_video_section {
+        height: auto;
+        >*:not(iframe) {
+            display: none;
+        }
+        iframe {
+            display: block;
+        }
+    }
+    .popup_grid_section {
+        flex-wrap: wrap;
+        a {
+            flex-basis: calc(50% - 5px);
+            height: 50vw;
+            &:nth-of-type(1) {
+                margin-bottom: 10px;
+            }
+            &:nth-of-type(2) {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .key_tech_section {
+        .key_tech_image_container .key_tech_svg_container {
             animation-name: toggleSizeMobile;
+        }
+        .key_tech_features {
+            height: 160px;
+        }
+    }
+    .popup_grid_section {
+        a {
+            flex-basis: 100vw;
+            height: 100vw;
+            &:nth-of-type(n) {
+                margin-right: 0;
+            }
+            &:nth-of-type(3) {
+                margin-bottom: 10px;
+            }
         }
     }
 }
