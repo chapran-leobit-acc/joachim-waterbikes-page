@@ -781,11 +781,59 @@ header.main {
         right: calc(40% - 7px);
         bottom: 15px; }
 
+.assembly_video_section {
+  position: relative; }
+  .assembly_video_section .assembly_banner {
+    display: none; }
+  .assembly_video_section .assembly_video {
+    width: 100%; }
+    .assembly_video_section .assembly_video #assembly_video {
+      width: 100%; }
+  .assembly_video_section .assembly_text {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    font-family: 'Oswald';
+    width: 100%;
+    height: 100%;
+    color: #eee;
+    position: absolute;
+    top: 0; }
+    .assembly_video_section .assembly_text h3 {
+      text-transform: uppercase;
+      font-size: 50px;
+      font-style: italic;
+      margin: 20px 0 20px 0; }
+    .assembly_video_section .assembly_text hr {
+      width: 40px;
+      background: #0033ff;
+      border-color: #0033ff; }
+    .assembly_video_section .assembly_text p {
+      font-family: 'Poppins';
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 20px; }
+    .assembly_video_section .assembly_text svg {
+      fill: #0033ff; }
+
 @media screen and (max-width: 1024px) {
   .top_video-section .top_video_overlay {
     background-color: #000; }
   .top_video-section video {
-    display: none; } }
+    display: none; }
+  .assembly_video_section {
+    height: 775px; }
+    .assembly_video_section .assembly_text {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("assets/img/videofallback.jpg"); }
+      .assembly_video_section .assembly_text h3, .assembly_video_section .assembly_text p {
+        padding: 0 50px; }
+    .assembly_video_section .assembly_video {
+      display: none; } }
 
 @media screen and (max-width: 992px) {
   .vimeo_embedded_video_section .play_btn_container #play_video_control {

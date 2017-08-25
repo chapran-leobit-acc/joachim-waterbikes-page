@@ -387,12 +387,73 @@ header.main {
     }
 }
 
+.assembly_video_section {
+    position: relative;
+    .assembly_banner {
+        display: none;
+    }
+    .assembly_video {
+        width: 100%;
+        #assembly_video {
+            width: 100%;
+        }
+    }
+    .assembly_text {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+            font-family: 'Oswald';
+            width: 100%;
+            height: 100%;
+            color: #eee;
+            position: absolute;
+            top: 0;
+            h3 {
+                text-transform: uppercase;
+                font-size: 50px;
+                font-style: italic;
+                margin: 20px 0 20px 0;
+            }
+            hr {
+                width: 40px;
+                background: rgb(0, 51, 255);
+                border-color: rgb(0, 51, 255);
+            }
+            p {
+                font-family: 'Poppins';
+                font-size: 15px;
+                font-weight: 500;
+                margin-top: 20px;
+            }
+            svg {
+                fill: rgb(0, 51, 255);
+            }
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .top_video-section {
         .top_video_overlay {
             background-color: #000;
         }
         video {
+            display: none;
+        }
+    }
+    .assembly_video_section {
+        height: 775px;
+        .assembly_text {
+            background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('assets/img/videofallback.jpg');
+            h3, p {
+                padding: 0 50px;
+            }
+        }
+        .assembly_video {
             display: none;
         }
     }
