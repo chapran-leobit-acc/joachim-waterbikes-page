@@ -13,12 +13,10 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto:500|Oswald:700" rel="stylesheet" property="stylesheet" type="text/css"
         media="all">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="lib/360-slider/styles/threesixty.css">
     <link rel="stylesheet" href="lib/MagnificPopup/magnific-popup.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-    <script src='lib/360-slider/threesixty.js'></script>
     <script src='lib/jquery.waypoints.min.js'></script>
     <script src="lib/MagnificPopup/jquery.magnific-popup.min.js"></script>
     <script src='js/main.js'></script>
@@ -28,7 +26,7 @@
     <header class="main">
         Header, navbar
     </header>
-    <section class="top_video-section">
+    <section class="top_video_section">
         <div class="top_video_overlay">
             <div class="top_video_header">
                 <div class="inner">
@@ -74,6 +72,7 @@
             <div class="play_btn_container">
                 <img id="text_video" src="./assets/img/max-fun.png" alt="Designed for fun">
                 <button id="play_video_control"><i class="fa fa-play fa-3x"></i></button>
+                <span class="watch_video">watch video</span>
             </div>
             <div class="bottom_controls">
                 <button id="pause_video_control"><i class="fa fa-pause"></i></button>
@@ -85,7 +84,7 @@
         </video>
     </section>
     <section class="key_tech_section">
-        <img class='key_tech_parallax_image' src="assets/img/key-technology-label-2.png" alt="Label">
+        <img id='key_tech_parallax_image' src="assets/img/key-technology-label-2.png" alt="Label">
         <div class="key_tech_image_container">
             <img src="assets/img/schiller-hotspot-product.png" alt="Bike image">
             <div class="key_tech_svg_container" id="responsive_steering" data-direction='left'>
@@ -150,16 +149,16 @@
         </div>
     </section>
     <section class="popup_grid_section">
-        <a href="assets/img/s-1-gallery-4.jpg" class="popup_grid_item" data-effect="mfp-zoom-in">
+        <a href="assets/img/s-1-gallery-4.jpg" class="popup_grid_item" data-effect="mfp-zoom-in" title='SCHILLER'>
             <div class="overlay"><span>+</span></div>
         </a>
-        <a href="assets/img/s-1-gallery-3.jpg" class="popup_grid_item" data-effect="mfp-zoom-in">
+        <a href="assets/img/s-1-gallery-3.jpg" class="popup_grid_item" data-effect="mfp-zoom-in" title='SCHILLER'>
             <div class="overlay"><span>+</span></div>
         </a>
-        <a href="assets/img/bike-360/s1-4.jpg" class="popup_grid_item" data-effect="mfp-zoom-in">
+        <a href="assets/img/bike-360/s1-4.jpg" class="popup_grid_item" data-effect="mfp-zoom-in" title='S1-8'>
             <div class="overlay"><span>+</span></div>
         </a>
-        <a href="assets/img/builttotravel.jpg" class="popup_grid_item" data-effect="mfp-zoom-in">
+        <a href="assets/img/builttotravel.jpg" class="popup_grid_item" data-effect="mfp-zoom-in" title='SCHILLER'>
             <div class="overlay"><span>+</span></div>
         </a>
     </section>
@@ -180,22 +179,85 @@
         </div>
     </section>
     <section class="threesixty_bike_section">
-        <div class="threesixty bike">
-            <div class="spinner">
-                <span>0%</span>
-            </div>
+        <div class="threesixty_caption">
+            <i class="fa fa-cogs"></i>
+            <h3>PRODUCT OVERVIEW</h3>
+            <hr>
+        </div>
+        <div class="threesixty_inner">
             <ol class="threesixty_images">
-                <!-- <li><img src="./assets/img/bike-360/s1-1.jpg" alt="image-1"></li>
-            <li><img src="./assets/img/bike-360/s1-2.jpg" alt="image-2"></li>
-            <li><img src="./assets/img/bike-360/s1-3.jpg" alt="image-3"></li>
-            <li><img src="./assets/img/bike-360/s1-4.jpg" alt="image-4"></li>
-            <li><img src="./assets/img/bike-360/s1-5.jpg" alt="image-5"></li>
-            <li><img src="./assets/img/bike-360/s1-6.jpg" alt="image-6"></li>
-            <li><img src="./assets/img/bike-360/s1-7.jpg" alt="image-7"></li>
-            <li><img src="./assets/img/bike-360/s1-8.jpg" alt="image-8"></li> -->
+                <li class='active'><img src="./assets/img/bike-360/s1-1.jpg" alt="image-1"></li>
+                <li><img src="./assets/img/bike-360/s1-2.jpg" alt="image-2"></li>
+                <li><img src="./assets/img/bike-360/s1-3.jpg" alt="image-3"></li>
+                <li><img src="./assets/img/bike-360/s1-4.jpg" alt="image-4"></li>
+                <li><img src="./assets/img/bike-360/s1-5.jpg" alt="image-5"></li>
+                <li><img src="./assets/img/bike-360/s1-6.jpg" alt="image-6"></li>
+                <li><img src="./assets/img/bike-360/s1-7.jpg" alt="image-7"></li>
+                <li><img src="./assets/img/bike-360/s1-8.jpg" alt="image-8"></li>
             </ol>
         </div>
         <input id='threesixty_range_slider' type="range" min=0 max=7 value=0>
+        <ul class="threesixty_features_list">
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Premium stainless steel and anodized components throughout</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Ultra low drag outdrive feat. a specially optimized propeller design</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Integrated steering on handlebars</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Rugged, 1100 denier PVC pontoons</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Performance saddle, handlebars, cranks and pedals</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Made in California the S1 Is silent, clean and sustainable.</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Frame is 2″ in width, supports up to 300lbs</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Less than 10 minutes to assemble and disassemble</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; Small footprint allows for easy storage</li>
+            <li>
+                <svg class="mk-svg-icon" data-name="mk-moon-checkmark-circle" data-cacheid="icon-59a3c84d62525" xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 512 512">
+                    <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm0 448c-106.039 0-192-85.961-192-192s85.961-192 192-192 192 85.961 192 192-85.961 192-192 192zm-48-32l-106-138 47-49 59 75 185-151 23 23z"></path>
+                </svg>&ensp; S1 transports on most vehicle bike racks & in trunks</li>
+        </ul>
+    </section>
+    <section class="buy_section">
+        <div class="buy_section_inner_container">
+            <img src="./assets/img/s1-c-hero-lockup-2.png" alt="Bike caption">
+            <button>
+                <i><svg  class="mk-svg-icon" data-name="mk-li-cart" data-cacheid="icon-59a3c84d78082" style=" height:16px; width: 16px; "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416.265 306.366c14.002-14.002 78.637-108.456 81.388-112.472 11.495-16.814 12.492-38.904 2.598-57.646-9.686-18.363-27.635-29.322-47.998-29.322h-329.568v-47.088c0-1.088-.107-2.146-.322-3.17-1.617-15.802-14.845-28.218-31.069-28.218h-54.933c-17.312 0-31.39 14.083-31.39 31.39v15.695c0 17.313 14.079 31.39 31.39 31.39h54.933v219.668c0 34.617 28.164 62.781 62.781 62.781h290.361c8.668 0 15.695-7.028 15.695-15.695s-7.028-15.695-15.695-15.695h-290.361c-17.289 0-31.344-14.043-31.383-31.325h243.422c27.719 0 38.272-8.41 50.151-20.293zm35.988-168.049c12.27 0 18.24 8.798 20.233 12.577 3.487 6.602 5.111 16.707-.751 25.283-31.529 46.12-70.192 100.524-77.664 107.996-8.078 8.074-11.097 11.097-27.957 11.097h-243.429v-156.953h329.568zm-415.892-62.781v-15.695h54.933v15.695h-54.933zm149.067 313.843c-25.958 0-47.079 21.121-47.079 47.086s21.121 47.086 47.079 47.086c25.965 0 47.093-21.121 47.093-47.086s-21.129-47.086-47.093-47.086zm0 62.78c-8.653 0-15.688-7.039-15.688-15.695 0-8.652 7.035-15.695 15.688-15.695 8.66 0 15.702 7.043 15.702 15.695 0 8.657-7.043 15.695-15.702 15.695zm204.007-62.78c-25.958 0-47.079 21.121-47.079 47.086s21.121 47.086 47.079 47.086c25.964 0 47.093-21.121 47.093-47.086s-21.13-47.086-47.093-47.086zm0 62.78c-8.653 0-15.688-7.039-15.688-15.695 0-8.652 7.035-15.695 15.688-15.695 8.66 0 15.702 7.043 15.702 15.695 0 8.657-7.043 15.695-15.702 15.695z"/></svg></i>&ensp;
+                $5,500
+            </button>
+        </div>
     </section>
 </body>
 

@@ -402,7 +402,7 @@ template {
 [hidden] {
   display: none; }
 
-.vimeo_embedded_video_section .bottom_controls::after, .popup_grid_section::after {
+.vimeo_embedded_video_section .bottom_controls::after, .popup_grid_section::after, .threesixty_bike_section .threesixty_features_list::after {
   clear: both;
   content: '';
   display: block; }
@@ -531,22 +531,22 @@ header.main {
   font-style: bold;
   line-height: 100px; }
 
-.top_video-section .top_video_overlay {
+.top_video_section .top_video_overlay {
   height: calc(100vh - 100px);
   position: relative;
   width: 100%;
   overflow: hidden; }
-  .top_video-section .top_video_overlay .top_video_header {
+  .top_video_section .top_video_overlay .top_video_header {
     display: table;
     height: 100%;
     width: 100%;
     text-align: center; }
-    .top_video-section .top_video_overlay .top_video_header .inner {
+    .top_video_section .top_video_overlay .top_video_header .inner {
       display: table-cell;
       vertical-align: middle; }
-    .top_video-section .top_video_overlay .top_video_header img {
+    .top_video_section .top_video_overlay .top_video_header img {
       width: 60%; }
-  .top_video-section .top_video_overlay video {
+  .top_video_section .top_video_overlay video {
     backface-visibility: hidden;
     top: 0;
     height: auto;
@@ -591,7 +591,7 @@ header.main {
 
 .vimeo_embedded_video_section {
   overflow: hidden;
-  height: 85vh;
+  height: 43vw;
   background-color: #fff;
   position: relative; }
   .vimeo_embedded_video_section iframe {
@@ -601,8 +601,9 @@ header.main {
   .vimeo_embedded_video_section .vimeo_video_controls {
     position: absolute;
     width: 100%;
-    height: 77%;
-    z-index: 5; }
+    height: 100%;
+    z-index: 5;
+    background: url(./assets/img/parallaxbg-new.jpg) center; }
   .vimeo_embedded_video_section button {
     -webkit-transition: all 300ms ease-in;
     -webkit-transform: scale(1);
@@ -622,32 +623,38 @@ header.main {
       line-height: inherit;
       display: inline-block; }
   .vimeo_embedded_video_section button:hover {
-    -webkit-transition: all 300ms ease-in;
-    -webkit-transform: scale(1.2);
-    -ms-transition: all 300ms ease-in;
-    -ms-transform: scale(1.2);
-    -moz-transition: all 300ms ease-in;
-    -moz-transform: scale(1.2);
-    transition: all 300ms ease-in;
+    transition: transform 300ms ease-in;
     transform: scale(1.2); }
   .vimeo_embedded_video_section .play_btn_container {
     text-align: center;
-    height: 100%;
-    position: relative; }
+    position: absolute;
+    top: 0; }
     .vimeo_embedded_video_section .play_btn_container #text_video {
       position: relative;
-      width: 50%; }
+      width: 50%;
+      display: block;
+      margin: auto; }
     .vimeo_embedded_video_section .play_btn_container #play_video_control {
-      position: absolute;
-      top: 70%;
-      left: calc(50% - 50px);
       height: 100px;
       width: 100px;
       line-height: 100px;
       padding-right: 0; }
+      .vimeo_embedded_video_section .play_btn_container #play_video_control:hover + span {
+        transform: rotateX(0);
+        margin-top: 23px; }
+    .vimeo_embedded_video_section .play_btn_container .watch_video {
+      text-transform: uppercase;
+      transform: rotateX(-90deg);
+      display: block;
+      color: #fff;
+      font-family: "Poppins";
+      transition: transform .3s, margin-top .3s;
+      margin-top: 30px;
+      letter-spacing: .1em;
+      font-weight: 500; }
   .vimeo_embedded_video_section .bottom_controls {
     position: absolute;
-    top: 525px;
+    bottom: 0;
     width: 100%;
     padding: 20px;
     display: none; }
@@ -660,17 +667,24 @@ header.main {
       margin: 0 10px;
       padding: 0; }
   .vimeo_embedded_video_section video {
-    width: 100%;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
     border: 1px solid #000; }
 
 .key_tech_section {
   position: relative;
-  background-color: #fff; }
-  .key_tech_section .key_tech_parallax_image {
+  background-color: #fff;
+  overflow: hidden; }
+  .key_tech_section #key_tech_parallax_image {
     opacity: 0.1;
     position: absolute;
     width: 60%;
-    left: 20%; }
+    left: 20%;
+    top: 10%;
+    will-change: transform; }
   .key_tech_section .key_tech_image_container {
     padding-top: 200px; }
     .key_tech_section .key_tech_image_container img {
@@ -768,11 +782,13 @@ header.main {
     width: 40%;
     flex-direction: column; }
     .key_tech_section [data-label='engineered_for_speed'] .text_section {
-      width: 70%; }
+      width: 70%;
+      flex-basis: initial; }
     .key_tech_section [data-label='engineered_for_speed'] .line_outer {
       width: 100%;
       height: 60px;
-      position: relative; }
+      position: relative;
+      flex-basis: initial; }
       .key_tech_section [data-label='engineered_for_speed'] .line_outer .line:not(.rotated) {
         width: 40%;
         position: absolute;
@@ -844,9 +860,15 @@ header.main {
     opacity: 0; }
   .mfp-zoom-in.mfp-removing.mfp-bg {
     opacity: 0; }
+  .mfp-zoom-in .mfp-bottom-bar {
+    font-weight: 600;
+    font-family: "Poppins";
+    color: #fff; }
 
 .assembly_video_section {
-  position: relative; }
+  position: relative;
+  overflow: hidden;
+  height: 55vw; }
   .assembly_video_section .assembly_banner {
     display: none; }
   .assembly_video_section .assembly_video {
@@ -863,8 +885,6 @@ header.main {
     align-items: center;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
     font-family: 'Oswald';
-    width: 100%;
-    height: 100%;
     color: #eee;
     position: absolute;
     top: 0; }
@@ -872,7 +892,7 @@ header.main {
       text-transform: uppercase;
       font-size: 50px;
       font-style: italic;
-      margin: 20px 0 20px 0; }
+      margin: 20px 0; }
     .assembly_video_section .assembly_text hr {
       width: 40px;
       background: #0033ff;
@@ -886,7 +906,37 @@ header.main {
       fill: #0033ff; }
 
 .threesixty_bike_section {
+  padding: 100px 0;
+  background-color: #fff;
   /* thumb */ }
+  .threesixty_bike_section .threesixty_caption {
+    text-align: center;
+    margin-bottom: 100px;
+    padding: 0 20px; }
+    .threesixty_bike_section .threesixty_caption .fa {
+      font-size: 2.85em;
+      color: #0033ff; }
+    .threesixty_bike_section .threesixty_caption h3 {
+      font-family: 'Oswald';
+      text-transform: uppercase;
+      font-size: 40px;
+      font-style: italic;
+      margin: 40px 0 20px 0; }
+    .threesixty_bike_section .threesixty_caption hr {
+      width: 40px;
+      background: #0033ff;
+      border-color: #0033ff; }
+  .threesixty_bike_section .threesixty_images {
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    .threesixty_bike_section .threesixty_images li {
+      width: 100%;
+      display: none; }
+      .threesixty_bike_section .threesixty_images li.active {
+        display: block; }
+      .threesixty_bike_section .threesixty_images li img {
+        width: 100%; }
   .threesixty_bike_section input[type="range"] {
     display: block;
     -webkit-appearance: none;
@@ -915,7 +965,7 @@ header.main {
   .threesixty_bike_section input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 30px;
-    height: 20px;
+    height: 22px;
     border: 1px solid #000;
     border-radius: 5px;
     box-shadow: inset 0px 1px 7px #b6b4a8;
@@ -926,28 +976,78 @@ header.main {
     background: #efefe7; }
   .threesixty_bike_section input[type="range"]::-moz-range-thumb {
     width: 30px;
-    height: 20px;
+    height: 22px;
     border: 1px solid #000;
     border-radius: 5px;
     box-shadow: inset 0px 1px 7px #b6b4a8;
     background: #efefe7; }
   .threesixty_bike_section input[type="range"]::-ms-thumb {
     width: 30px;
-    height: 20px;
+    height: 22px;
     border-radius: 5px;
     border: 1px solid #000;
     box-shadow: inset 0px 1px 7px #b6b4a8;
     background: #efefe7; }
+  .threesixty_bike_section .threesixty_features_list {
+    margin: 50px auto;
+    padding: 0;
+    width: 90%;
+    list-style: none; }
+    .threesixty_bike_section .threesixty_features_list li {
+      float: left;
+      width: 50%;
+      position: relative;
+      padding: 0 10px;
+      line-height: 40px;
+      font-family: 'Poppins';
+      font-weight: 500;
+      margin-bottom: 20px; }
+      .threesixty_bike_section .threesixty_features_list li svg {
+        height: 16px;
+        width: 16px;
+        fill: #0033ff; }
+
+.buy_section {
+  background-color: #000;
+  text-align: center;
+  padding: 70px 20px; }
+  .buy_section .buy_section_inner_container {
+    max-width: 300px;
+    margin: auto; }
+    .buy_section .buy_section_inner_container img,
+    .buy_section .buy_section_inner_container button {
+      width: 100%;
+      display: block;
+      padding: 20px 0; }
+    .buy_section .buy_section_inner_container button {
+      border-radius: 50px;
+      padding: 20px;
+      background-color: #0033ff;
+      color: #fff;
+      border: none;
+      transition: background-color .3s;
+      letter-spacing: .1em;
+      font-weight: 600; }
+      .buy_section .buy_section_inner_container button:focus {
+        outline: none; }
+      .buy_section .buy_section_inner_container button:hover {
+        background-color: #4d70ff; }
+      .buy_section .buy_section_inner_container button i {
+        vertical-align: middle; }
+      .buy_section .buy_section_inner_container button svg {
+        fill: #fff; }
 
 @media screen and (max-width: 1024px) {
-  .top_video-section .top_video_overlay {
+  .top_video_section .top_video_overlay {
     background-color: #000; }
-  .top_video-section video {
+  .top_video_section video {
     display: none; }
   .assembly_video_section {
     height: 775px; }
     .assembly_video_section .assembly_text {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/videofallback.jpg"); }
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/videofallback.jpg");
+      background-size: cover;
+      background-position: center; }
       .assembly_video_section .assembly_text h3,
       .assembly_video_section .assembly_text p {
         padding: 0 50px; }
@@ -955,11 +1055,8 @@ header.main {
       display: none; } }
 
 @media screen and (max-width: 992px) {
-  .vimeo_embedded_video_section .play_btn_container #play_video_control {
-    top: auto;
-    bottom: 0; }
-  .vimeo_embedded_video_section .play_btn_container #text_video {
-    top: 200px; }
+  .vimeo_embedded_video_section .play_btn_container {
+    top: 10%; }
   .water_bike_features .water_bike_features_wrapper .list_of_features {
     display: block; }
     .water_bike_features .water_bike_features_wrapper .list_of_features .single_feature {
@@ -981,18 +1078,6 @@ header.main {
     .key_tech_section .key_tech_feature_desc .line_outer {
       display: none; } }
 
-@media screen and (min-width: 993px) and (max-width: 1090px) {
-  .vimeo_embedded_video_section .bottom_controls {
-    top: 428px; } }
-
-@media screen and (min-width: 992px) and (max-width: 1240) {
-  .vimeo_embedded_video_section .play_btn_container #play_video_control {
-    top: 50%; } }
-
-@media screen and (min-width: 768px) and (max-width: 850px) {
-  .vimeo_embedded_video_section .bottom_controls {
-    top: 445px; } }
-
 @media screen and (max-width: 767px) {
   .vimeo_embedded_video_section {
     height: auto; }
@@ -1009,13 +1094,21 @@ header.main {
         margin-bottom: 10px; }
       .popup_grid_section a:nth-of-type(2) {
         margin-right: 0;
-        margin-bottom: 10px; } }
+        margin-bottom: 10px; }
+  .threesixty_bike_section .threesixty_features_list li {
+    width: 100%;
+    text-align: center; } }
 
 @media screen and (max-width: 500px) {
-  .key_tech_section .key_tech_image_container .key_tech_svg_container {
-    animation-name: toggleSizeMobile; }
+  .key_tech_section #key_tech_parallax_image {
+    top: 20%; }
+  .key_tech_section .key_tech_image_container {
+    padding-top: 150px; }
+    .key_tech_section .key_tech_image_container .key_tech_svg_container {
+      animation-name: toggleSizeMobile; }
   .key_tech_section .key_tech_features {
-    height: 160px; }
+    height: 160px;
+    margin-top: -10px; }
   .popup_grid_section a {
     flex-basis: 100vw;
     height: 100vw; }
@@ -1023,3 +1116,12 @@ header.main {
       margin-right: 0; }
     .popup_grid_section a:nth-of-type(3) {
       margin-bottom: 10px; } }
+
+@media screen and (min-width: 768px) {
+  .vimeo_embedded_video_section #vimeo_video {
+    will-change: transform; } }
+
+@media screen and (min-width: 1025px) {
+  .top_video_section video,
+  .assembly_video_section #assembly_video {
+    will-change: transform; } }

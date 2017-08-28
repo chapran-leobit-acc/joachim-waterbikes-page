@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $(window).on('load scroll', function () {
         var scrolled = $(this).scrollTop();
-        $('#top_vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
-        var videoScroll = scrolled - 1500;
-        $('#vimeo_video').css('transform', 'translate3d(0, ' + (videoScroll * 0.25) + 'px, 0)');
+        enableParallax(scrolled, $('#top_vid'));
+        enableParallax(scrolled, $('#vimeo_video'), true);
+        enableParallax(scrolled, $('#key_tech_parallax_image'), true);
+        enableParallax(scrolled, $('#assembly_video'), true);
     });
     animateBicycleFeatures();
     enableVimeoVidControls();
@@ -14,6 +15,9 @@ $(document).ready(function () {
         type: 'image',
         gallery: {
             enabled: true
+        },
+        titleSrc: function(item){
+            return item.el.attr('title');
         },
         removalDelay: 500, //delay removal by X to allow out-animation
         callbacks: {
@@ -37,14 +41,17 @@ $(document).ready(function () {
 
 function enableVimeoVidControls() {
     var vimeoVideo = $('#vimeo_video').get(0),
-        playBtn = $('#play_video_control'),
-        textOnVideo = $('#text_video'),
+        playVideoBlock = $('.play_btn_container'),
         bottomControls = $('.bottom_controls'),
-        pauseBtn = $('#pause_video_control'),
-        volumeBtn = $('#volume_video_control');
+        volumeBtn = $('#volume_video_control'),
+        background = true;
     $('.vimeo_video_controls').click(function (e) {
-        target = $(e.target);
+        var target = $(e.target);
         if (target.closest('#play_video_control').length) {
+            if(background){
+                e.delegateTarget.style.background = 'transparent';
+                background = false;
+            }
             playVideo();
         } else if (target.closest('#pause_video_control').length) {
             pauseVideo();
@@ -54,16 +61,14 @@ function enableVimeoVidControls() {
     })
 
     function playVideo() {
-        textOnVideo.fadeOut();
+        playVideoBlock.fadeOut();
         vimeoVideo.play();
-        playBtn.fadeOut();
         bottomControls.fadeIn();
     }
 
     function pauseVideo() {
-        textOnVideo.fadeIn();
+        playVideoBlock.fadeIn();
         vimeoVideo.pause();
-        playBtn.fadeIn();
         bottomControls.fadeOut();
     }
 
@@ -134,23 +139,23 @@ function setKeyTechCaptions() {
 }
 
 function enable360Slider(){
-    bike = $('.bike').ThreeSixty({
-        totalFrames: 8, // Total no. of image you have for 360 slider
-        endFrame: 8, // end frame for the auto spin animation
-        currentFrame: 1, // This the start frame for auto spin
-        imgList: '.threesixty_images', // selector for image list
-        progress: '.spinner', // selector to show the loading progress
-        imagePath:'./assets/img/bike-360/', // path of the image assets
-        filePrefix: 's1-', // file prefix if any
-        ext: '.jpg', // extention for the assets
-        height: 1000,
-        width: 447,
-        navigation: false,
-        responsive: true
-    });
-    $('#threesixty_range_slider').on('change', function(e){
-        var value = $(this).val();
-        console.log(value);
-        bike.gotoAndPlay(value);
+    var imagesList = $('.threesixty_images li'),
+    previous = 0;
+    $('#threesixty_range_slider').on('input', function(e){
+        var value = $(this).val(),
+        percent = value < 4 ? Math.ceil(100 / 7 * value) : Math.floor(100 / 7 * value);
+        gradient = 'linear-gradient(to right, #0033ff ' + percent + '%, silver 0)';
+        $(this).css('background', gradient);
+        imagesList[previous].classList.remove('active');
+        imagesList[value].classList.add('active');
+        previous = value;
     })
+}
+
+function enableParallax(scrolled, elem, hasAdditionalOffset){
+    var translateVal;
+    hasAdditionalOffset && (scrolled -= Math.round(elem.offset().top));
+    translateVal = scrolled * 0.35;
+    if(!hasAdditionalOffset) translateVal = -translateVal;
+    elem.css('transform', 'translateY(' + translateVal + 'px)');
 }
