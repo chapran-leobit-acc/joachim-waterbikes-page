@@ -268,7 +268,7 @@ header.main {
         position: absolute;
         width: 60%;
         left: 20%;
-        top: 10%;
+        top:15%;
         will-change: transform;
     }
     .key_tech_image_container {
@@ -808,7 +808,7 @@ header.main {
 @media screen and (max-width: 500px) {
     .key_tech_section {
         #key_tech_parallax_image {
-            top: 20%;
+            top: 30%;
         }
         .key_tech_image_container {
             padding-top: 150px;
