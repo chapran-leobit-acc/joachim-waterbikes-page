@@ -1,14 +1,11 @@
 $(document).ready(function () {
-    $(window).on('load scroll', function () {
+    $(window).on('load scroll', function (e) {
         var scrolled = $(this).scrollTop();
-        enableParallax(scrolled, $('#top_vid'));
-        enableParallax(scrolled, $('#vimeo_video'), true);
-        enableParallax(scrolled, $('#key_tech_parallax_image'), true);
-        enableParallax(scrolled, $('#assembly_video'), true);
+        setParallax(scrolled, $('.parallax_item'));
+        e.type == 'load' && setKeyTechCaptions();
     });
     animateBicycleFeatures();
     enableVimeoVidControls();
-    setKeyTechCaptions();
     enable360Slider();
     $('.popup_grid_section').magnificPopup({
         delegate: 'a', // child items selector, by clicking on it popup will open
@@ -16,7 +13,7 @@ $(document).ready(function () {
         gallery: {
             enabled: true
         },
-        titleSrc: function(item){
+        titleSrc: function (item) {
             return item.el.attr('title');
         },
         removalDelay: 500, //delay removal by X to allow out-animation
@@ -48,7 +45,7 @@ function enableVimeoVidControls() {
     $('.vimeo_video_controls').click(function (e) {
         var target = $(e.target);
         if (target.closest('#play_video_control').length) {
-            if(background){
+            if (background) {
                 e.delegateTarget.style.background = 'transparent';
                 background = false;
             }
@@ -100,50 +97,59 @@ function animateBicycleFeatures() {
 
 function setKeyTechCaptions() {
     var indicators = $('.key_tech_svg_container');
+    indicators.each(setCaptionPosition);
     indicators.on('mouseover mouseout', function (e) {
         var target = $(e.currentTarget),
             idStr = target.attr('id'),
             descrItem = $("[data-label='" + idStr + "']");
-        stylesObject = {};
         if (e.type == 'mouseover') {
-            stylesObject['opacity'] = 1;
-            if (window.innerWidth >= 992) {
-                var targetPosition = {
-                    top: parseInt(target.css('top')),
-                    left: parseInt(target.css('left'))
-                },
-                    top, left;
-                if (target.attr('id') == 'engineered_for_speed') {
-                    top = targetPosition.top - descrItem.height() + 24;
-                } else {
-                    top = targetPosition.top - descrItem.height() / 2 + 12;
-                }
-                if (target.data('direction') == 'left') {
-                    left = targetPosition.left - descrItem.width() - 12;
-                } else {
-                    left = targetPosition.left + 36;
-                }
-                stylesObject['top'] = top + 'px';
-                stylesObject['left'] = left + 'px';
-            }
+            descrItem.css('opacity', 1);
         } else {
-            stylesObject['opacity'] = '';
+            descrItem.css('opacity', '');
         }
-        descrItem.css(stylesObject);
     })
     $(window).on('resize', function () {
         if (window.innerWidth < 992) {
             $('[data-label]').removeAttr('style');
+        } else {
+            indicators.each(setCaptionPosition);
         }
     })
+
+    function setCaptionPosition(index, indicator) {
+        var indicator = $(indicator),
+            idStr = indicator.attr('id'),
+            descrItem = $("[data-label='" + idStr + "']");
+        if (window.innerWidth >= 992) {
+            var targetPosition = {
+                top: parseInt(indicator.css('top')),
+                left: parseInt(indicator.css('left'))
+            },
+                top, left;
+            if (indicator.attr('id') == 'engineered_for_speed') {
+                top = targetPosition.top - descrItem.height() + 24;
+            } else {
+                top = targetPosition.top - descrItem.height() / 2 + 12;
+            }
+            if (indicator.data('direction') == 'left') {
+                left = targetPosition.left - descrItem.width() - 12;
+            } else {
+                left = targetPosition.left + 36;
+            }
+            descrItem.css({
+                'top': top + 'px',
+                'left': left + 'px'
+            })
+        }
+    }
 }
 
-function enable360Slider(){
+function enable360Slider() {
     var imagesList = $('.threesixty_images li'),
-    previous = 0;
-    $('#threesixty_range_slider').on('input', function(e){
+        previous = 0;
+    $('#threesixty_range_slider').on('input', function (e) {
         var value = $(this).val(),
-        percent = value < 4 ? Math.ceil(100 / 7 * value) : Math.floor(100 / 7 * value);
+            percent = value < 4 ? Math.ceil(100 / 7 * value) : Math.floor(100 / 7 * value);
         gradient = 'linear-gradient(to right, #0033ff ' + percent + '%, silver 0)';
         $(this).css('background', gradient);
         imagesList[previous].classList.remove('active');
@@ -152,10 +158,10 @@ function enable360Slider(){
     })
 }
 
-function enableParallax(scrolled, elem, hasAdditionalOffset){
-    var translateVal;
-    hasAdditionalOffset && (scrolled -= Math.round(elem.offset().top));
-    translateVal = scrolled * 0.35;
-    if(!hasAdditionalOffset) translateVal = -translateVal;
-    elem.css('transform', 'translateY(' + translateVal + 'px)');
+function setParallax(scrolled, elemArray) {
+    $.each(elemArray, function (index, item) {
+        var elem = $(item),
+            translateVal = (scrolled - Math.round(elem.offset().top)) * 0.5;
+        elem.css('transform', 'translateY(' + translateVal + 'px)');
+    })
 }

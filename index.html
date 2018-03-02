@@ -33,14 +33,14 @@
                     <img src="assets/img/s1-c-hero-lockup-2.png" alt="Caption">
                 </div>
             </div>
-            <video id="top_vid" autoplay loop muted>
+            <video class="parallax_item" autoplay loop muted>
                 <source type="video/mp4" src="assets/videos/s1-video-hero.mp4.mp4"></source>
             </video>
         </div>
     </section>
     <section class="water_bike_features">
         <div class="water_bike_features_wrapper">
-            <img id="water_bike" src="./assets/img/schiller-intro-bike-3.png" alt="Bike features">
+            <img class="water_bike" src="./assets/img/schiller-intro-bike-3.png" alt="Bike features">
             <div class="list_of_features">
                 <div class="single_feature animated">
                     <img src="./assets/img/schiller-icons-weight-2-1-e1494107397542.png" alt="Lightweight">
@@ -70,7 +70,7 @@
             webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="vimeo_video_controls">
             <div class="play_btn_container">
-                <img id="text_video" src="./assets/img/max-fun.png" alt="Designed for fun">
+                <img class="text_video" src="./assets/img/max-fun.png" alt="Designed for fun">
                 <button id="play_video_control"><i class="fa fa-play fa-3x"></i></button>
                 <span class="watch_video">watch video</span>
             </div>
@@ -79,12 +79,12 @@
                 <button id="volume_video_control"><i class="fa fa-volume-up"></i></button>
             </div>
         </div>
-        <video id="vimeo_video">
+        <video id="vimeo_video" class="parallax_item">
             <source type="video/mp4" src="assets/videos/vimeo-video.mp4"></source>
         </video>
     </section>
     <section class="key_tech_section">
-        <img id='key_tech_parallax_image' src="assets/img/key-technology-label-2.png" alt="Label">
+        <img class='key_tech_parallax_image parallax_item' src="assets/img/key-technology-label-2.png" alt="Label">
         <div class="key_tech_image_container">
             <img src="assets/img/schiller-hotspot-product.png" alt="Bike image">
             <div class="key_tech_svg_container" id="responsive_steering" data-direction='left'>
@@ -163,8 +163,8 @@
         </a>
     </section>
     <section class="assembly_video_section">
-        <div class="assembly_video">
-            <video id="assembly_video" autoplay loop muted>
+        <div class="assembly_video_container">
+            <video class="parallax_item assembly_video" autoplay loop muted>
                 <source type="video/mp4" src="assets/videos/assembly.mp4.mp4"></source>
             </video>
         </div>
@@ -253,10 +253,15 @@
     <section class="buy_section">
         <div class="buy_section_inner_container">
             <img src="./assets/img/s1-c-hero-lockup-2.png" alt="Bike caption">
-            <button>
-                <i><svg  class="mk-svg-icon" data-name="mk-li-cart" data-cacheid="icon-59a3c84d78082" style=" height:16px; width: 16px; "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416.265 306.366c14.002-14.002 78.637-108.456 81.388-112.472 11.495-16.814 12.492-38.904 2.598-57.646-9.686-18.363-27.635-29.322-47.998-29.322h-329.568v-47.088c0-1.088-.107-2.146-.322-3.17-1.617-15.802-14.845-28.218-31.069-28.218h-54.933c-17.312 0-31.39 14.083-31.39 31.39v15.695c0 17.313 14.079 31.39 31.39 31.39h54.933v219.668c0 34.617 28.164 62.781 62.781 62.781h290.361c8.668 0 15.695-7.028 15.695-15.695s-7.028-15.695-15.695-15.695h-290.361c-17.289 0-31.344-14.043-31.383-31.325h243.422c27.719 0 38.272-8.41 50.151-20.293zm35.988-168.049c12.27 0 18.24 8.798 20.233 12.577 3.487 6.602 5.111 16.707-.751 25.283-31.529 46.12-70.192 100.524-77.664 107.996-8.078 8.074-11.097 11.097-27.957 11.097h-243.429v-156.953h329.568zm-415.892-62.781v-15.695h54.933v15.695h-54.933zm149.067 313.843c-25.958 0-47.079 21.121-47.079 47.086s21.121 47.086 47.079 47.086c25.965 0 47.093-21.121 47.093-47.086s-21.129-47.086-47.093-47.086zm0 62.78c-8.653 0-15.688-7.039-15.688-15.695 0-8.652 7.035-15.695 15.688-15.695 8.66 0 15.702 7.043 15.702 15.695 0 8.657-7.043 15.695-15.702 15.695zm204.007-62.78c-25.958 0-47.079 21.121-47.079 47.086s21.121 47.086 47.079 47.086c25.964 0 47.093-21.121 47.093-47.086s-21.13-47.086-47.093-47.086zm0 62.78c-8.653 0-15.688-7.039-15.688-15.695 0-8.652 7.035-15.695 15.688-15.695 8.66 0 15.702 7.043 15.702 15.695 0 8.657-7.043 15.695-15.702 15.695z"/></svg></i>&ensp;
-                $5,500
-            </button>
+            <div class="bottom_customer_form_container">
+                <h3>Want to know more? Leave your contact info here</h3>
+                <form id="bottom_customer_form" action='mailto:achapran@leobit.co' method='post'>
+                    <input type="text" placeholder='Name'>
+                    <input type="tel" placeholder='Phone number'>
+                    <input type="email" placeholder='Email'>
+                    <input type='submit' value='Submit'>
+                </form>
+            </div>
         </div>
     </section>
 </body>
